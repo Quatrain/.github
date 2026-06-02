@@ -26,7 +26,7 @@ The Quatrain ecosystem is organized across specialized repositories to keep conc
 | Repository | Purpose | Primary Technologies |
 | :--- | :--- | :--- |
 | **[Core](https://github.com/Quatrain/Core)** | Sibling foundation library packages, adapters, and business logic frameworks. | Bun, TypeScript, PostgreSQL, SQLite, Firestore, Supabase, RabbitMQ |
-| **[CoreUI](https://github.com/Quatrain/CoreUI)** | Shared UI components, visual styling tokens, and framework-agnostic headless interface controllers. | React, Mantine UI, TailwindCSS, TypeScript |
+| **[CoreUX](https://github.com/Quatrain/CoreUX)** | Shared UI/UX components, visual styling tokens, and framework-agnostic headless interface controllers. | React, Mantine UI, TailwindCSS, TypeScript |
 | **[CoreApps](https://github.com/Quatrain/CoreApps)** | Visual designer portals, modeling API gateways, reference applications, and OCI image specifications. | React, Mantine UI, Express, Yarn Berry (v4) Workspaces, Docker/Podman |
 | **[actions](https://github.com/Quatrain/actions)** | Centralized, reusable GitHub Actions mutualizing CI/CD pipelines. | GitHub Actions, Shell, Node.js |
 | **[apps.quatrain.dev](https://github.com/Quatrain/apps.quatrain.dev)** | GitOps recipes, Kubernetes manifests, and Podman Compose deployment scripts. | Podman Compose, Traefik, Kubernetes |
@@ -52,10 +52,10 @@ graph TD
         F["Infrastructure Adapters (Postgres, S3, OIDC, AMQP)"]
     end
 
-    subgraph CoreUIRepo ["Quatrain/CoreUI"]
-        G["@quatrain/ui (Mantine styling)"]
-        G1["@quatrain/ui-form (Headless Form controllers)"]
-        G2["@quatrain/ui-list (Headless List controllers)"]
+    subgraph CoreUXRepo ["Quatrain/CoreUX"]
+        G["@quatrain/ux (Mantine styling)"]
+        G1["@quatrain/ux-form (Headless Form controllers)"]
+        G2["@quatrain/ux-list (Headless List controllers)"]
     end
 
     subgraph CoreAppsRepo ["Quatrain/CoreApps"]
@@ -72,14 +72,14 @@ graph TD
 
     %% Dependency & Flow Links
     A -.->|Automates CI/CD| CoreRepo
-    A -.->|Automates CI/CD| CoreUIRepo
+    A -.->|Automates CI/CD| CoreUXRepo
     A -.->|Automates CI/CD| CoreAppsRepo
     
     E -->|Strongly Typed Contracts| D
     F -->|Implements Adapters for| D
     
-    E -->|Types| CoreUIRepo
-    CoreUIRepo -->|Provides Components & Controllers to| H
+    E -->|Types| CoreUXRepo
+    CoreUXRepo -->|Provides Components & Controllers to| H
     
     D -->|Local sibling portal link / NPM Registry| CoreAppsRepo
     H -->|Interfaces with| I
@@ -106,17 +106,17 @@ Every contract and interface is statically and strictly typed, ensuring total sa
 
 ## 🛠️ Local Development Quickstart
 
-To build and run the complete ecosystem locally, clone the `Core`, `CoreUI`, and `CoreApps` repositories as sibling directories:
+To build and run the complete ecosystem locally, clone the `Core`, `CoreUX`, and `CoreApps` repositories as sibling directories:
 
 ```text
 CODE/QUATRAIN/
 ├── Core/            # Foundation libraries & adapters
-├── CoreUI/          # UI elements & headless controllers
+├── CoreUX/          # UI/UX elements & headless controllers
 └── CoreApps/        # Dashboard interfaces & local modeling gateway
 ```
 
 ### 1. Setup & Link Dependencies
-Navigate to the `CoreApps` repository. Because `CoreApps` uses **Yarn Berry (v4) Workspaces**, running installation will automatically resolve the `@quatrain/*` sibling dependencies from both your local `Core` and `CoreUI` directories using portal-linking:
+Navigate to the `CoreApps` repository. Because `CoreApps` uses **Yarn Berry (v4) Workspaces**, running installation will automatically resolve the `@quatrain/*` sibling dependencies from both your local `Core` and `CoreUX` directories using portal-linking:
 
 ```bash
 cd CoreApps
