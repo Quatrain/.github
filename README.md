@@ -26,8 +26,8 @@ The Quatrain ecosystem is organized across specialized repositories to keep conc
 | Repository | Purpose | Primary Technologies |
 | :--- | :--- | :--- |
 | **[Core](https://github.com/Quatrain/Core)** | Sibling foundation library packages, adapters, and business logic frameworks. | Bun, TypeScript, PostgreSQL, SQLite, Firestore, Supabase, RabbitMQ |
-| **[CoreUX](https://github.com/Quatrain/CoreUX)** | Shared UI/UX components, visual styling tokens, and framework-agnostic headless interface controllers. | React, Mantine UI, TailwindCSS, TypeScript |
-| **[CoreApps](https://github.com/Quatrain/CoreApps)** | Visual designer portals, modeling API gateways, reference applications, and OCI image specifications. | React, Mantine UI, Express, Yarn Berry (v4) Workspaces, Docker/Podman |
+| **[Core UX](https://github.com/Quatrain/CoreUX)** [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Quatrain_CoreUX&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Quatrain_CoreUX)| Shared UI/UX components, visual styling tokens, and framework-agnostic headless interface controllers. | React, Mantine UI, TailwindCSS, TypeScript |
+| **[Core Apps](https://github.com/Quatrain/CoreApps)** | Visual designer portals, modeling API gateways, reference applications, and OCI image specifications. | React, Mantine UI, Express, Yarn Berry (v4) Workspaces, Docker/Podman |
 | **[actions](https://github.com/Quatrain/actions)** | Centralized, reusable GitHub Actions mutualizing CI/CD pipelines. | GitHub Actions, Shell, Node.js |
 | **[apps.quatrain.dev](https://github.com/Quatrain/apps.quatrain.dev)** | GitOps recipes, Kubernetes manifests, and Podman Compose deployment scripts. | Podman Compose, Traefik, Kubernetes |
 
